@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://fy6grrqr3uaa"]
+
+[ext_resource type="Script" path="res://Scenes/MainMenu/MainMenu.gd" id="1_au2ay"]
+[ext_resource type="PackedScene" uid="uid://ce07yr77bjduu" path="res://Scenes/MainMenu/MenuButton.tscn" id="2_euapw"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_au2ay")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 324)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "GAME TITLE"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 324)
+layout_mode = 2
+alignment = 1
+
+[node name="Start" parent="VBoxContainer/VBoxContainer" instance=ExtResource("2_euapw")]
+layout_mode = 2
+text = "Start"
+
+[node name="Options" parent="VBoxContainer/VBoxContainer" instance=ExtResource("2_euapw")]
+layout_mode = 2
+text = "Options"
+
+[node name="Exit" parent="VBoxContainer/VBoxContainer" instance=ExtResource("2_euapw")]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

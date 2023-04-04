@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce07yr77bjduu"]
+
+[ext_resource type="Script" path="res://Scenes/MainMenu/MenuButton.gd" id="1_3vb8u"]
+[ext_resource type="Texture2D" uid="uid://bp57udljiwj3l" path="res://arrow.png" id="1_een5b"]
+
+[node name="TextureButton" type="TextureButton"]
+custom_minimum_size = Vector2(0, 50)
+script = ExtResource("1_3vb8u")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center] Text button [/center]"
+
+[node name="Left_arrow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(476, 12.5)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_een5b")
+
+[node name="Right_arrow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(676, 12.5)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_een5b")
+flip_h = true
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
